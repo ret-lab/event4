@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UnionTeam 4 ОДРП — Ивент Отдел</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ===== PRELOADER ===== -->
+<!-- ===== PRELOADER ===== -->
+  <div id="preloader">
+    <!-- Night sky background -->
+    <div class="preloader-sky">
+      <div class="preloader-stars"></div>
+      <div class="preloader-moon">
+        <div class="preloader-moon-glow"></div>
+        <div class="preloader-moon-body"></div>
+        <div class="preloader-moon-crater c1"></div>
+        <div class="preloader-moon-crater c2"></div>
+        <div class="preloader-moon-crater c3"></div>
+      </div>
+    </div>
+
+    <div class="preloader-inner">
+      <!-- Sleeping icon with Z's -->
+      <div class="preloader-sleep-wrap">
+        <div class="preloader-icon-ring">
+          <img src="https://i.imgur.com/gykWRac.png" alt="brand" class="preloader-brand" />
+        </div>
+        <!-- Z particles -->
+        <div class="preloader-zzz">
+          <span class="zzz z1">Z</span>
+          <span class="zzz z2">Z</span>
+          <span class="zzz z3">Z</span>
+          <span class="zzz z4">z</span>
+          <span class="zzz z5">z</span>
+        </div>
+      </div>
+
+      <div class="preloader-bar"><div class="preloader-fill"></div></div>
+      <p class="preloader-text">Загрузка данных...</p>
+    </div>
+  </div>
+
+<!-- ===== LOGIN SCREEN ===== -->
+  <div id="login-screen" class="hidden">
+    <div class="login-overlay"></div>
+
+    <!-- Real BG image layer (parallax target) -->
+    <div class="login-bg-img" id="login-bg-img"></div>
+
+    <!-- Dark overlay over BG image -->
+    <div class="login-bg-scene" id="login-bg-scene"></div>
+
+    <!-- Lightning flash overlay -->
+    <div class="lightning-flash" id="lightning-flash"></div>
+
+    <!-- Eagle LEFT -->
+    <div class="eagle-container eagle-left" id="eagle-left">
+      <svg class="eagle-svg" viewBox="0 0 44 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <filter id="eyeGlowL" x="-200%" y="-200%" width="500%" height="500%">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="0.6" result="blur1"/>
+            <feGaussianBlur in="SourceGraphic" stdDeviation="1.5" result="blur2"/>
+            <feMerge>
+              <feMergeNode in="blur2"/>
+              <feMergeNode in="blur1"/>
+              <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+          </filter>
+        </defs>
+        <!-- Body -->
+        <path d="M12.2033 13.1101C12.0865 13.2527 11.9909 13.4113 11.9193 13.5811C11.7719 13.9167 11.6999 14.2805 11.7086 14.6468C11.8608 14.5888 12.0162 14.5397 12.174 14.4995C12.5383 14.4113 12.9116 14.3653 13.2864 14.3624C14.2016 14.3736 15.4526 16.333 15.6757 16.6702C16.3373 17.6819 17.4519 18.9837 19.4321 20.2113C19.2067 20.6441 18.9813 21.1106 18.7706 21.6176C18.4385 22.4011 18.1569 23.205 17.9275 24.0243C17.3873 24.0318 16.8358 24.0468 16.273 24.0693C15.7103 24.0918 15.1674 24.1206 14.6445 24.1559C16.1456 25.0095 17.5465 26.0275 18.8213 27.191C19.5899 27.8959 19.9156 28.2972 20.1805 28.7648C20.7575 29.7912 20.8364 30.6444 20.9198 32.2969C20.9367 32.6409 21.383 35.4523 21.383 36.1381C21.383 36.8238 21.4698 44.4039 21.4698 44.4039V50.7654L15.6926 40.5986C15.6926 40.5986 14.8158 39.1058 14.507 39.2654C14.1982 39.425 12.8052 41.1169 12.6158 43.672C12.5978 43.6496 11.4832 39.2778 11.3265 36.6889C11.1202 35.7963 6.87359 42.6221 6.86232 42.8627C6.65494 44.0632 7.49796 35.6266 7.73915 35.078C7.98033 34.5294 4.50118 37.9232 4.50118 37.9232C4.42236 33.0951 5.02947 28.2802 6.30444 23.6219C7.4619 19.4244 8.81209 14.7232 12.7015 10.4875C14.1215 8.93952 16.8185 6.08083 21.0224 5.36813C21.7151 5.24999 22.4171 5.19506 23.1198 5.204C23.0758 7.29378 22.9845 9.46786 22.8335 11.724C22.7005 13.7137 22.5322 15.6345 22.3286 17.4863C22.1881 15.8757 21.9243 14.2782 21.5397 12.7076C21.0421 10.6817 20.3452 8.7098 19.4592 6.82052L17.9636 7.50624C18.969 9.46233 19.7827 11.5106 20.3935 13.6227C20.8126 15.0742 21.1342 16.552 21.356 18.0462C20.9367 17.3125 20.4934 16.5694 20.0261 15.817C18.7045 13.6907 17.2696 11.6365 15.7276 9.66346C15.572 9.61175 14.6614 10.5898 14.6614 10.5898C15.1223 11.0698 15.6498 11.6566 16.2043 12.3513C16.7724 13.0623 17.3032 13.8022 17.7945 14.5681C18.6783 15.9536 19.4328 17.417 20.0486 18.9399C14.2083 13.8228 12.4975 12.8347 12.2033 13.1101Z" fill="currentColor"/>
+        <path d="M25.7357 5.62335C24.2557 9.41993 23.5259 13.4662 23.5865 17.5392C23.9175 16.4806 24.3043 15.4401 24.7451 14.422C25.1959 13.3765 25.5577 12.5379 26.1313 11.6465C26.9726 10.353 28.0518 9.23012 29.3118 8.33702" fill="currentColor"/>
+        <path d="M31.4407 9.99515C31.4407 9.99515 29.1777 9.80067 27.4871 12.1895C25.7966 14.5783 25.0336 16.8884 24.8949 17.4145C24.7563 17.9406 24.5061 18.9804 24.5061 18.9804C24.5061 18.9804 27.0363 15.3112 28.1746 14.5558C29.3129 13.8004 31.3382 12.4761 33.6294 12.6931" fill="currentColor"/>
+        <path d="M31.5873 15.9655C31.5873 15.9655 31.2807 18.6263 31.0452 19.7032C31.0373 19.7549 34.0363 18.3318 35.0856 18.3913C36.1349 18.4509 36.4527 18.778 36.5507 18.8635C36.6488 18.9489 35.9568 17.4021 33.7647 16.4972C33.315 16.342 33.1854 16.1082 31.5873 15.9655Z" fill="currentColor"/>
+        <path d="M30.6248 20.8296L29.6533 23.2139C29.6533 23.2139 33.4176 21.7525 34.2088 21.576C35 21.3995 36.5643 21.1983 37.0365 21.3276C37.0715 21.3107 36.8303 19.9303 34.6697 19.9471C32.5092 19.964 30.6248 20.8296 30.6248 20.8296Z" fill="currentColor"/>
+        <path d="M29.2745 23.948L28.7415 25.0451C28.7415 25.0451 30.3058 24.3077 30.9595 24.3763C31.6131 24.4448 33.6925 25.0103 36.7017 28.132C37.2652 28.8694 38.5241 30.4815 39.4348 32.7275C39.4866 32.6072 37.8366 23.9131 37.1998 23.2622C36.5631 22.6114 33.9855 22.9014 33.1087 23.0554C32.2319 23.2094 29.2745 23.948 29.2745 23.948Z" fill="currentColor"/>
+        <path d="M29.3489 25.5307L30.9707 25.0507C32.0896 25.8998 33.1475 26.8262 34.1365 27.8228C36.2822 29.9881 38.0902 32.4621 39.5001 35.1623C39.1723 37.4652 38.962 39.7832 38.8701 42.1073C38.8701 42.1815 38.8644 42.2557 38.861 42.3321C38.5421 41.4789 36.2768 35.4636 33.9697 31.4774C33.2978 30.288 32.5336 29.1529 31.6841 28.0825C30.9645 27.1802 30.1843 26.3277 29.3489 25.5307Z" fill="currentColor"/>
+        <path d="M28.7932 25.7219L27.7361 26.9C28.7256 28.6739 29.7253 30.6568 30.6743 32.8478C31.8051 35.4594 32.7655 38.1412 33.5493 40.8764C34.1354 41.1563 34.7451 41.4699 35.3717 41.8195C36.2102 42.2861 36.9778 42.7627 37.6754 43.2315C37.043 41.0796 36.2697 38.9714 35.3605 36.9205C34.1256 34.1348 32.6453 31.4638 30.9369 28.9391" fill="currentColor"/>
+        <path d="M27.0059 27.4114L25.8191 29.0065C25.8191 29.0065 29.1033 37.9232 29.5845 40.8392C29.6702 40.9067 29.6352 41.082 29.633 41.0944C29.6183 41.2068 30.4828 41.7779 33.484 43.4438C32.3037 40.3105 31.1233 37.1779 29.9429 34.046" fill="currentColor"/>
+        <path d="M24.9997 29.898L23.8535 32.207L26.2372 41.9701C26.2372 41.9701 26.7421 42.9077 27.4059 43.5248C28.0697 44.142 29.607 45.3538 29.607 45.3538C29.607 45.3538 27.9379 38.2886 27.6358 37.4196" fill="currentColor"/>
+        <path d="M22.3411 34.996L23.556 50.7957L25.3897 42.4501L23.3723 33.5334" fill="currentColor"/>
+        <path d="M18.4775 24.6337L18.4268 24.5909L16.415 24.8045C16.415 24.8045 19.5955 26.8797 19.9911 27.326C20.2909 27.6632 20.5997 27.8049 20.7699 28.1207C20.8281 28.2372 20.8662 28.3626 20.8826 28.4917C21.108 29.708 21.5047 32.5476 21.9488 34.4418C21.9691 34.5283 21.9848 34.5958 21.9916 34.6216C22.0006 34.5441 22.013 34.4249 22.0254 34.2788C22.2508 31.7899 21.8575 30.4174 21.4495 27.4114C21.1181 24.9675 20.9175 22.4731 20.9175 22.4731L20.2808 21.5816L19.6958 21.2983L18.4775 24.6337Z" fill="currentColor"/>
+        <path d="M24.8171 20.3934C24.8171 20.3934 23.7047 19.24 23.1762 18.8196C22.856 18.5656 22.4936 18.3696 22.1055 18.2407" fill="currentColor"/>
+        <path d="M22.1112 18.2261C22.1112 18.2261 21.3437 18.2946 20.805 19.2086C20.2663 20.1225 19.6982 21.2983 19.6982 21.2983L20.2832 21.5816L20.415 21.3815C20.415 21.3815 20.5751 20.272 20.9538 19.7695C21.3324 19.267 21.8024 18.8207 21.985 18.7398C22.1676 18.6589 22.4099 18.615 23.2247 19.3918C24.0396 20.1686 24.9322 20.9926 24.9547 21.1072C24.9773 21.2219 25.1722 21.9414 24.9209 22.1808C24.6696 22.4202 24.3935 22.6496 23.8435 22.0897C23.2935 21.5299 22.4561 21.2095 22.0785 21.2556C21.701 21.3017 20.7261 21.6895 20.6224 21.8379C20.5187 21.9863 20.7599 22.2876 20.7599 22.2876C20.7599 22.2876 21.1611 21.7727 21.5274 21.7165C21.8937 21.6603 22.1924 21.5794 22.4674 21.6592C22.7424 21.739 23.4817 21.8301 23.5335 22.0819C23.5854 22.3337 23.3848 22.8823 23.6823 23.1341C23.9798 23.3859 24.256 23.4533 24.5084 23.2364C24.7609 23.0194 25.0235 23.2712 25.3672 23.4882C25.711 23.7051 26.0322 23.9457 26.5371 23.8535C27.042 23.7613 27.5221 23.4308 27.6833 23.3274C27.8444 23.224 28.1871 22.9733 28.3595 23.1026C28.5319 23.2319 28.6221 23.423 28.4722 23.5253C28.3223 23.6276 27.7847 23.7771 27.521 23.8681C27.2573 23.9592 25.596 24.8293 25.3323 25.1721C25.0686 25.515 24.2661 26.2693 24.2312 26.5661C24.1962 26.8628 23.8311 27.6183 23.8187 27.9499C23.8063 28.2815 23.4637 29.1617 23.4637 29.1617L22.9599 31.3223L22.8224 33.3233C22.8224 33.3233 23.4862 31.1627 23.6936 30.8187C23.9009 30.4747 25.1587 28.4299 25.3086 28.2129C25.4585 27.996 26.6611 26.4289 26.7873 26.258C26.9135 26.0872 28.0022 24.6573 28.1285 24.5314C28.2547 24.4055 28.8396 23.6321 28.8622 23.3656C28.8847 23.0992 28.8159 22.8171 28.524 22.7822C28.2321 22.7474 27.1367 23.3195 26.7704 23.3769C26.4041 23.4342 26.128 23.4679 25.8079 23.251C25.4878 23.034 25.019 22.943 24.948 22.8508C24.877 22.7586 25.0167 22.8283 25.1734 22.382C25.33 21.9357 25.3458 21.0106 25.2545 20.9206C25.1632 20.8307 24.9333 20.5834 24.9333 20.5834C24.9333 20.5834 26.0333 20.5485 26.1133 20.5485C26.1933 20.5485 26.7783 21.3838 26.9507 21.5209C27.1231 21.6581 28.142 22.183 28.754 21.6581C29.3659 21.1331 30.1301 20.2979 30.2191 19.566C30.3081 18.8342 30.0703 17.8056 30.2529 17.1536C30.4808 16.4492 30.783 15.7709 31.1545 15.1302C31.3495 14.8334 31.7102 14.3354 32.2263 14.3354C32.6043 14.345 32.981 14.3826 33.3534 14.4478C33.3534 14.4478 33.0153 13.9982 32.5521 14.0128C32.0889 14.0274 31.3304 14.259 31.0272 14.4996C30.724 14.7401 28.1961 17.2481 27.956 17.6033C27.716 17.9585 26.9586 18.8713 26.9586 18.8713L26.102 19.6582C26.102 19.6582 25.3627 20.3024 25.2252 20.3327C25.0877 20.3631 24.8612 20.4451 24.8612 20.4451" fill="currentColor"/>
+        <!-- Glowing eyes — simple circles, on top of everything -->
+        <circle class="eagle-eye" cx="14.85" cy="19.05" r="0.85" filter="url(#eyeGlowL)"/>
+        <circle class="eagle-eye" cx="29.0" cy="19.05" r="0.85" filter="url(#eyeGlowL)"/>
+        <!-- Pupils -->
+        <circle class="eagle-pupil eagle-pupil-left" cx="14.85" cy="19.05" r="0.35"/>
+        <circle class="eagle-pupil eagle-pupil-right" cx="29.0" cy="19.05" r="0.35"/>
+      </svg>
+    </div>
+
+    <!-- Eagle RIGHT (mirrored via CSS only) -->
+    <div class="eagle-container eagle-right" id="eagle-right">
+      <svg class="eagle-svg" viewBox="0 0 44 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <filter id="eyeGlowR" x="-200%" y="-200%" width="500%" height="500%">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="0.6" result="blur1"/>
+            <feGaussianBlur in="SourceGraphic" stdDeviation="1.5" result="blur2"/>
+            <feMerge>
+              <feMergeNode in="blur2"/>
+              <feMergeNode in="blur1"/>
+              <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+          </filter>
+        </defs>
+        <!-- Body — same paths, NO inline transform -->
+        <path d="M12.2033 13.1101C12.0865 13.2527 11.9909 13.4113 11.9193 13.5811C11.7719 13.9167 11.6999 14.2805 11.7086 14.6468C11.8608 14.5888 12.0162 14.5397 12.174 14.4995C12.5383 14.4113 12.9116 14.3653 13.2864 14.3624C14.2016 14.3736 15.4526 16.333 15.6757 16.6702C16.3373 17.6819 17.4519 18.9837 19.4321 20.2113C19.2067 20.6441 18.9813 21.1106 18.7706 21.6176C18.4385 22.4011 18.1569 23.205 17.9275 24.0243C17.3873 24.0318 16.8358 24.0468 16.273 24.0693C15.7103 24.0918 15.1674 24.1206 14.6445 24.1559C16.1456 25.0095 17.5465 26.0275 18.8213 27.191C19.5899 27.8959 19.9156 28.2972 20.1805 28.7648C20.7575 29.7912 20.8364 30.6444 20.9198 32.2969C20.9367 32.6409 21.383 35.4523 21.383 36.1381C21.383 36.8238 21.4698 44.4039 21.4698 44.4039V50.7654L15.6926 40.5986C15.6926 40.5986 14.8158 39.1058 14.507 39.2654C14.1982 39.425 12.8052 41.1169 12.6158 43.672C12.5978 43.6496 11.4832 39.2778 11.3265 36.6889C11.1202 35.7963 6.87359 42.6221 6.86232 42.8627C6.65494 44.0632 7.49796 35.6266 7.73915 35.078C7.98033 34.5294 4.50118 37.9232 4.50118 37.9232C4.42236 33.0951 5.02947 28.2802 6.30444 23.6219C7.4619 19.4244 8.81209 14.7232 12.7015 10.4875C14.1215 8.93952 16.8185 6.08083 21.0224 5.36813C21.7151 5.24999 22.4171 5.19506 23.1198 5.204C23.0758 7.29378 22.9845 9.46786 22.8335 11.724C22.7005 13.7137 22.5322 15.6345 22.3286 17.4863C22.1881 15.8757 21.9243 14.2782 21.5397 12.7076C21.0421 10.6817 20.3452 8.7098 19.4592 6.82052L17.9636 7.50624C18.969 9.46233 19.7827 11.5106 20.3935 13.6227C20.8126 15.0742 21.1342 16.552 21.356 18.0462C20.9367 17.3125 20.4934 16.5694 20.0261 15.817C18.7045 13.6907 17.2696 11.6365 15.7276 9.66346C15.572 9.61175 14.6614 10.5898 14.6614 10.5898C15.1223 11.0698 15.6498 11.6566 16.2043 12.3513C16.7724 13.0623 17.3032 13.8022 17.7945 14.5681C18.6783 15.9536 19.4328 17.417 20.0486 18.9399C14.2083 13.8228 12.4975 12.8347 12.2033 13.1101Z" fill="currentColor"/>
+        <path d="M25.7357 5.62335C24.2557 9.41993 23.5259 13.4662 23.5865 17.5392C23.9175 16.4806 24.3043 15.4401 24.7451 14.422C25.1959 13.3765 25.5577 12.5379 26.1313 11.6465C26.9726 10.353 28.0518 9.23012 29.3118 8.33702" fill="currentColor"/>
+        <path d="M31.4407 9.99515C31.4407 9.99515 29.1777 9.80067 27.4871 12.1895C25.7966 14.5783 25.0336 16.8884 24.8949 17.4145C24.7563 17.9406 24.5061 18.9804 24.5061 18.9804C24.5061 18.9804 27.0363 15.3112 28.1746 14.5558C29.3129 13.8004 31.3382 12.4761 33.6294 12.6931" fill="currentColor"/>
+        <path d="M31.5873 15.9655C31.5873 15.9655 31.2807 18.6263 31.0452 19.7032C31.0373 19.7549 34.0363 18.3318 35.0856 18.3913C36.1349 18.4509 36.4527 18.778 36.5507 18.8635C36.6488 18.9489 35.9568 17.4021 33.7647 16.4972C33.315 16.342 33.1854 16.1082 31.5873 15.9655Z" fill="currentColor"/>
+        <path d="M30.6248 20.8296L29.6533 23.2139C29.6533 23.2139 33.4176 21.7525 34.2088 21.576C35 21.3995 36.5643 21.1983 37.0365 21.3276C37.0715 21.3107 36.8303 19.9303 34.6697 19.9471C32.5092 19.964 30.6248 20.8296 30.6248 20.8296Z" fill="currentColor"/>
+        <path d="M29.2745 23.948L28.7415 25.0451C28.7415 25.0451 30.3058 24.3077 30.9595 24.3763C31.6131 24.4448 33.6925 25.0103 36.7017 28.132C37.2652 28.8694 38.5241 30.4815 39.4348 32.7275C39.4866 32.6072 37.8366 23.9131 37.1998 23.2622C36.5631 22.6114 33.9855 22.9014 33.1087 23.0554C32.2319 23.2094 29.2745 23.948 29.2745 23.948Z" fill="currentColor"/>
+        <path d="M29.3489 25.5307L30.9707 25.0507C32.0896 25.8998 33.1475 26.8262 34.1365 27.8228C36.2822 29.9881 38.0902 32.4621 39.5001 35.1623C39.1723 37.4652 38.962 39.7832 38.8701 42.1073C38.8701 42.1815 38.8644 42.2557 38.861 42.3321C38.5421 41.4789 36.2768 35.4636 33.9697 31.4774C33.2978 30.288 32.5336 29.1529 31.6841 28.0825C30.9645 27.1802 30.1843 26.3277 29.3489 25.5307Z" fill="currentColor"/>
+        <path d="M28.7932 25.7219L27.7361 26.9C28.7256 28.6739 29.7253 30.6568 30.6743 32.8478C31.8051 35.4594 32.7655 38.1412 33.5493 40.8764C34.1354 41.1563 34.7451 41.4699 35.3717 41.8195C36.2102 42.2861 36.9778 42.7627 37.6754 43.2315C37.043 41.0796 36.2697 38.9714 35.3605 36.9205C34.1256 34.1348 32.6453 31.4638 30.9369 28.9391" fill="currentColor"/>
+        <path d="M27.0059 27.4114L25.8191 29.0065C25.8191 29.0065 29.1033 37.9232 29.5845 40.8392C29.6702 40.9067 29.6352 41.082 29.633 41.0944C29.6183 41.2068 30.4828 41.7779 33.484 43.4438C32.3037 40.3105 31.1233 37.1779 29.9429 34.046" fill="currentColor"/>
+        <path d="M24.9997 29.898L23.8535 32.207L26.2372 41.9701C26.2372 41.9701 26.7421 42.9077 27.4059 43.5248C28.0697 44.142 29.607 45.3538 29.607 45.3538C29.607 45.3538 27.9379 38.2886 27.6358 37.4196" fill="currentColor"/>
+        <path d="M22.3411 34.996L23.556 50.7957L25.3897 42.4501L23.3723 33.5334" fill="currentColor"/>
+        <path d="M18.4775 24.6337L18.4268 24.5909L16.415 24.8045C16.415 24.8045 19.5955 26.8797 19.9911 27.326C20.2909 27.6632 20.5997 27.8049 20.7699 28.1207C20.8281 28.2372 20.8662 28.3626 20.8826 28.4917C21.108 29.708 21.5047 32.5476 21.9488 34.4418C21.9691 34.5283 21.9848 34.5958 21.9916 34.6216C22.0006 34.5441 22.013 34.4249 22.0254 34.2788C22.2508 31.7899 21.8575 30.4174 21.4495 27.4114C21.1181 24.9675 20.9175 22.4731 20.9175 22.4731L20.2808 21.5816L19.6958 21.2983L18.4775 24.6337Z" fill="currentColor"/>
+        <path d="M24.8171 20.3934C24.8171 20.3934 23.7047 19.24 23.1762 18.8196C22.856 18.5656 22.4936 18.3696 22.1055 18.2407" fill="currentColor"/>
+        <path d="M22.1112 18.2261C22.1112 18.2261 21.3437 18.2946 20.805 19.2086C20.2663 20.1225 19.6982 21.2983 19.6982 21.2983L20.2832 21.5816L20.415 21.3815C20.415 21.3815 20.5751 20.272 20.9538 19.7695C21.3324 19.267 21.8024 18.8207 21.985 18.7398C22.1676 18.6589 22.4099 18.615 23.2247 19.3918C24.0396 20.1686 24.9322 20.9926 24.9547 21.1072C24.9773 21.2219 25.1722 21.9414 24.9209 22.1808C24.6696 22.4202 24.3935 22.6496 23.8435 22.0897C23.2935 21.5299 22.4561 21.2095 22.0785 21.2556C21.701 21.3017 20.7261 21.6895 20.6224 21.8379C20.5187 21.9863 20.7599 22.2876 20.7599 22.2876C20.7599 22.2876 21.1611 21.7727 21.5274 21.7165C21.8937 21.6603 22.1924 21.5794 22.4674 21.6592C22.7424 21.739 23.4817 21.8301 23.5335 22.0819C23.5854 22.3337 23.3848 22.8823 23.6823 23.1341C23.9798 23.3859 24.256 23.4533 24.5084 23.2364C24.7609 23.0194 25.0235 23.2712 25.3672 23.4882C25.711 23.7051 26.0322 23.9457 26.5371 23.8535C27.042 23.7613 27.5221 23.4308 27.6833 23.3274C27.8444 23.224 28.1871 22.9733 28.3595 23.1026C28.5319 23.2319 28.6221 23.423 28.4722 23.5253C28.3223 23.6276 27.7847 23.7771 27.521 23.8681C27.2573 23.9592 25.596 24.8293 25.3323 25.1721C25.0686 25.515 24.2661 26.2693 24.2312 26.5661C24.1962 26.8628 23.8311 27.6183 23.8187 27.9499C23.8063 28.2815 23.4637 29.1617 23.4637 29.1617L22.9599 31.3223L22.8224 33.3233C22.8224 33.3233 23.4862 31.1627 23.6936 30.8187C23.9009 30.4747 25.1587 28.4299 25.3086 28.2129C25.4585 27.996 26.6611 26.4289 26.7873 26.258C26.9135 26.0872 28.0022 24.6573 28.1285 24.5314C28.2547 24.4055 28.8396 23.6321 28.8622 23.3656C28.8847 23.0992 28.8159 22.8171 28.524 22.7822C28.2321 22.7474 27.1367 23.3195 26.7704 23.3769C26.4041 23.4342 26.128 23.4679 25.8079 23.251C25.4878 23.034 25.019 22.943 24.948 22.8508C24.877 22.7586 25.0167 22.8283 25.1734 22.382C25.33 21.9357 25.3458 21.0106 25.2545 20.9206C25.1632 20.8307 24.9333 20.5834 24.9333 20.5834C24.9333 20.5834 26.0333 20.5485 26.1133 20.5485C26.1933 20.5485 26.7783 21.3838 26.9507 21.5209C27.1231 21.6581 28.142 22.183 28.754 21.6581C29.3659 21.1331 30.1301 20.2979 30.2191 19.566C30.3081 18.8342 30.0703 17.8056 30.2529 17.1536C30.4808 16.4492 30.783 15.7709 31.1545 15.1302C31.3495 14.8334 31.7102 14.3354 32.2263 14.3354C32.6043 14.345 32.981 14.3826 33.3534 14.4478C33.3534 14.4478 33.0153 13.9982 32.5521 14.0128C32.0889 14.0274 31.3304 14.259 31.0272 14.4996C30.724 14.7401 28.1961 17.2481 27.956 17.6033C27.716 17.9585 26.9586 18.8713 26.9586 18.8713L26.102 19.6582C26.102 19.6582 25.3627 20.3024 25.2252 20.3327C25.0877 20.3631 24.8612 20.4451 24.8612 20.4451" fill="currentColor"/>
+        <!-- Glowing eyes -->
+        <circle class="eagle-eye" cx="14.85" cy="19.05" r="0.85" filter="url(#eyeGlowR)"/>
+        <circle class="eagle-eye" cx="29.0" cy="19.05" r="0.85" filter="url(#eyeGlowR)"/>
+        <!-- Pupils -->
+        <circle class="eagle-pupil eagle-pupil-left" cx="14.85" cy="19.05" r="0.35"/>
+        <circle class="eagle-pupil eagle-pupil-right" cx="29.0" cy="19.05" r="0.35"/>
+      </svg>
+    </div>
+
+    <!-- Login Card -->
+    <div class="login-card login-glass-card">
+      <div class="login-header">
+        <img src="https://i.imgur.com/IAIJe65.png" alt="brand" class="login-brand-icon" />
+        <h1>UnionTeam</h1>
+        <p class="login-subtitle">Ивент-отдел 4 ОДРП</p>
+      </div>
+      <form id="login-form" autocomplete="off">
+        <div class="input-group login-input-group">
+          <label for="login-username">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            Логин
+          </label>
+          <input type="text" id="login-username" placeholder="Введите логин" required />
+        </div>
+        <div class="input-group login-input-group">
+          <label for="login-password">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            Пароль
+          </label>
+          <input type="password" id="login-password" placeholder="Введите пароль" required />
+        </div>
+        <div id="login-error" class="login-error hidden">Неверный логин или пароль</div>
+        <button type="submit" class="btn btn-login-conic btn-login">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>
+          Войти
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ===== MAIN APP ===== -->
+  <div id="app" class="hidden">
+
+    <!-- Background -->
+    <div id="app-bg"></div>
+    <canvas id="app-bg-effect"></canvas>
+    <div id="app-bg-overlay"></div>
+
+    <!-- Top User Bar -->
+    <header id="top-bar">
+      <div class="top-bar-left">
+        <img src="https://i.imgur.com/Mh98NZ5.png" alt="brand" class="top-bar-brand" />
+        <span class="top-bar-title">UnionTeam — Ивент Отдел</span>
+      </div>
+      <div class="top-bar-right">
+        <div class="user-info">
+          <div class="user-details">
+            <span class="user-name" id="user-display-name">—</span>
+            <span class="user-rank" id="user-display-rank">—</span>
+            <span class="user-rank" id="user-display-steam">Steam ID: —</span>
+          </div>
+          <div class="user-avatar" id="user-avatar-wrap">
+            <img id="user-avatar" src="" alt="avatar" />
+          </div>
+        </div>
+        <button class="btn-icon btn-logout" id="btn-logout" title="Выйти">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- Navigation -->
+    <!-- Navigation -->
+    <nav id="main-nav">
+      <div class="nav-container glass-panel">
+        <button class="nav-item active" data-tab="dashboard" id="nav-dashboard">
+          <div class="nav-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+          </div>
+          <span class="nav-label">Дашборд</span>
+        </button>
+        <button class="nav-item" data-tab="events" id="nav-events">
+          <div class="nav-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          </div>
+          <span class="nav-label">Таблица ивентов</span>
+        </button>
+        <button class="nav-item" data-tab="staff" id="nav-staff">
+          <div class="nav-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <span class="nav-label">Ивент состав</span>
+        </button>
+        <button class="nav-item" data-tab="manual" id="nav-manual">
+          <div class="nav-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+          </div>
+          <span class="nav-label">Методичка</span>
+        </button>
+        <button class="nav-item" data-tab="norm" id="nav-norm">
+          <div class="nav-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          </div>
+          <span class="nav-label">Норма</span>
+        </button>
+        <button class="nav-item" data-tab="settings" id="nav-settings">
+          <div class="nav-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+          </div>
+          <span class="nav-label">Настройки</span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- ===== CONTENT ===== -->
+    <main id="content">
+
+      <!-- TAB: Dashboard -->
+      <section id="tab-dashboard" class="tab-content active">
+        <div class="section-header">
+          <h2>
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+            Дашборд
+          </h2>
+        </div>
+        <div id="dashboard-content"></div>
+      </section>
+
+      <!-- TAB: Events -->
+      <section id="tab-events" class="tab-content hidden">
+        <div class="section-header">
+          <h2>
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            Таблица ивентов
+          </h2>
+        </div>
+
+        <!-- Events Filters -->
+        <div class="filters-bar glass-panel">
+          <div class="filter-group">
+            <input type="text" id="ev-search" class="filter-input" placeholder="Поиск по названию / организатору..." />
+          </div>
+          <div class="filter-group">
+            <select id="ev-filter-status" class="filter-select">
+              <option value="all">Все статусы</option>
+              <option value="В рассмотрении">В рассмотрении</option>
+              <option value="Одобрено">Одобрено</option>
+              <option value="Отказано">Отказано</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <select id="ev-filter-organizer" class="filter-select">
+              <option value="all">Все организаторы</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <select id="ev-sort" class="filter-select">
+              <option value="newest">Сначала новые</option>
+              <option value="oldest">Сначала старые</option>
+              <option value="name">По названию</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label class="filter-checkbox-label">
+              <input type="checkbox" id="ev-filter-mine" />
+              Только мои
+            </label>
+          </div>
+        </div>
+
+        <div class="table-wrapper glass-panel">
+          <table id="events-table">
+            <thead>
+              <tr>
+                <th>Название</th>
+                <th>Организатор</th>
+                <th>Время</th>
+                <th>Участники</th>
+                <th>Статус</th>
+                <th>Действия</th>
+              </tr>
+            </thead>
+            <tbody id="events-tbody"></tbody>
+          </table>
+          <div id="events-empty" class="empty-state hidden">
+            <svg class="empty-icon-svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><line x1="9" y1="16" x2="15" y2="16"/></svg>
+            <p>Ивентов пока нет</p>
+          </div>
+          <div class="table-bottom-bar">
+            <button type="button" class="btn-add-mini" id="btn-add-event">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              <span>Добавить ивент</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB: Staff -->
+      <section id="tab-staff" class="tab-content hidden">
+        <div class="section-header">
+          <h2>
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            Ивент состав
+          </h2>
+        </div>
+
+        <!-- Staff Filters -->
+        <div class="filters-bar glass-panel">
+          <div class="filter-group">
+            <input type="text" id="staff-search" class="filter-input" placeholder="Поиск по имени / Steam / Discord..." />
+          </div>
+          <div class="filter-group">
+            <select id="staff-filter-role" class="filter-select">
+              <option value="all">Все роли</option>
+              <option value="Глава ивентов">Глава ивентов</option>
+              <option value="Зам главы ивентов">Зам главы ивентов</option>
+              <option value="Старший ивентер">Старший ивентер</option>
+              <option value="Ивентер">Ивентер</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <select id="staff-sort" class="filter-select">
+              <option value="name">По имени</option>
+              <option value="date-new">Новые первые</option>
+              <option value="date-old">Старые первые</option>
+              <option value="role">По роли</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="staff-section">
+          <h3 class="staff-section-title">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            Старший состав
+          </h3>
+          <div class="table-wrapper glass-panel">
+            <table><thead><tr><th>Имя</th><th>Роль</th><th>Ранг</th><th>Steam ID</th><th>Дата вступления</th><th>Discord ID</th><th>Действия</th></tr></thead>
+            <tbody id="staff-senior-tbody"></tbody></table>
+            <div id="staff-senior-empty" class="empty-state hidden"><svg class="empty-icon-svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg><p>Старший состав пуст</p></div>
+          </div>
+        </div>
+
+        <div class="staff-section">
+          <h3 class="staff-section-title">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            Младший состав
+          </h3>
+          <div class="table-wrapper glass-panel">
+            <table><thead><tr><th>Имя</th><th>Роль</th><th>Ранг</th><th>Steam ID</th><th>Дата вступления</th><th>Discord ID</th><th>Действия</th></tr></thead>
+            <tbody id="staff-junior-tbody"></tbody></table>
+            <div id="staff-junior-empty" class="empty-state hidden"><svg class="empty-icon-svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><p>Младший состав пуст</p></div>
+          </div>
+        </div>
+
+        <div class="table-bottom-bar">
+          <button type="button" class="btn-add-mini" id="btn-import-staff">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            <span>Импорт из таблицы</span>
+          </button>
+          <button type="button" class="btn-add-mini" id="btn-add-staff">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            <span>Добавить сотрудника</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- TAB: Manual -->
+      <section id="tab-manual" class="tab-content hidden">
+        <div class="section-header">
+          <h2>
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+            Методичка
+          </h2>
+        </div>
+
+        <div id="manual-toolbar" class="manual-toolbar glass-panel hidden">
+          <div class="manual-toolbar-row">
+            <div class="manual-toolbar-group"><label class="manual-toolbar-label">Размер</label>
+              <select id="manual-font-size" class="manual-select"><option value="0.8rem">Мелкий</option><option value="1rem" selected>Обычный</option><option value="1.25rem">Средний</option><option value="1.5rem">Крупный</option><option value="2rem">Большой</option><option value="2.5rem">Огромный</option></select>
+            </div>
+            <div class="manual-toolbar-group"><label class="manual-toolbar-label">Цвет</label><input type="color" id="manual-color" value="#f5eaea" class="manual-color-input" /></div>
+            <div class="manual-toolbar-group"><label class="manual-toolbar-label">Эффект</label>
+              <select id="manual-effect" class="manual-select"><option value="none">Без эффекта</option><option value="gradient">Градиент</option><option value="stroke">Обводка</option><option value="neon">Неон</option><option value="3d">3D</option><option value="glitch">Glitch</option><option value="animated-gradient">Анимац. градиент</option></select>
+            </div>
+          </div>
+          <div class="manual-toolbar-row">
+            <div class="manual-toolbar-group"><label class="manual-toolbar-label">Grad 1</label><input type="color" id="manual-grad1" value="#ff4a4a" class="manual-color-input" /></div>
+            <div class="manual-toolbar-group"><label class="manual-toolbar-label">Grad 2</label><input type="color" id="manual-grad2" value="#fbbf24" class="manual-color-input" /></div>
+            <div class="manual-toolbar-group"><label class="manual-toolbar-label">Stroke</label><input type="color" id="manual-stroke-color" value="#ff4a4a" class="manual-color-input" /></div>
+            <div class="manual-toolbar-group"><label class="manual-toolbar-label">Толщина</label>
+              <select id="manual-stroke-width" class="manual-select"><option value="0.5px">Тонкая</option><option value="1px" selected>Средняя</option><option value="1.5px">Толстая</option><option value="2px">Жирная</option></select>
+            </div>
+          </div>
+          <div class="manual-toolbar-row">
+            <button type="button" class="btn btn-accent btn-sm" id="manual-add-block">+ Текст</button>
+            <button type="button" class="btn btn-secondary btn-sm" id="manual-add-heading">H Заголовок</button>
+            <button type="button" class="btn btn-secondary btn-sm" id="manual-add-quote">❝ Цитата</button>
+            <button type="button" class="btn btn-secondary btn-sm" id="manual-add-list">☰ Список</button>
+            <button type="button" class="btn btn-secondary btn-sm" id="manual-add-spoiler">▶ Спойлер</button>
+            <button type="button" class="btn btn-secondary btn-sm" id="manual-add-important">📌 Важное</button>
+            <button type="button" class="btn btn-secondary btn-sm" id="manual-add-divider">— Разделитель</button>
+            <button type="button" class="btn btn-accent btn-sm" id="manual-save">💾 Сохранить</button>
+            <button type="button" class="btn btn-secondary btn-sm" id="manual-versions">📜 Версии</button>
+          </div>
+        </div>
+
+        <div class="manual-content glass-panel" id="manual-content">
+          <div class="manual-loading"><svg class="spin" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12a9 9 0 1 1-6.219-8.56"/></svg> Загрузка...</div>
+        </div>
+      </section>
+
+      <!-- TAB: Norm -->
+      <section id="tab-norm" class="tab-content hidden">
+        <div class="section-header">
+          <h2>
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            Норма
+          </h2>
+        </div>
+
+        <div class="norm-settings glass-panel">
+          <div class="norm-settings-row">
+            <div class="norm-settings-group"><label class="norm-label">Тип отчёта</label>
+              <select id="norm-report-type" class="manual-select"><option value="weekly">Еженедельная</option><option value="interim">Промежуточная</option></select>
+            </div>
+            <div class="norm-settings-group"><label class="norm-label"><input type="checkbox" id="norm-events-enabled" checked class="norm-checkbox" /> Норма ивентов</label>
+              <input type="number" id="norm-events-required" value="2" min="0" max="99" class="norm-number-input" />
+            </div>
+            <div class="norm-settings-group"><label class="norm-label"><input type="checkbox" id="norm-tickets-enabled" checked class="norm-checkbox" /> Норма тикетов</label>
+              <input type="number" id="norm-tickets-required" value="30" min="0" max="999" class="norm-number-input" />
+            </div>
+          </div>
+          <div class="norm-settings-row norm-settings-actions">
+            <button type="button" class="btn btn-accent btn-sm" id="norm-copy-btn">📋 Скопировать отчёт</button>
+            <button type="button" class="btn btn-secondary btn-sm" id="norm-toggle-all">✅ Вкл/выкл всех</button>
+            <button type="button" class="btn btn-secondary btn-sm" id="norm-auto-count">🔄 Автоподсчёт ивентов</button>
+            <input type="file" id="norm-csv-upload" accept=".csv" class="hidden" />
+            <button type="button" class="btn btn-secondary btn-sm" id="norm-csv-btn">📤 Загрузить CSV</button>
+          </div>
+
+          <!-- Norm Filters -->
+          <div class="norm-settings-row">
+            <div class="norm-settings-group"><label class="norm-label">Показать</label>
+              <select id="norm-filter-type" class="manual-select"><option value="all">Всех</option><option value="enabled">Только включённых</option><option value="senior">Старший состав</option><option value="junior">Младший состав</option></select>
+            </div>
+            <div class="norm-settings-group"><label class="norm-label">Статус нормы</label>
+              <select id="norm-filter-status" class="manual-select"><option value="all">Все</option><option value="done">Выполнили</option><option value="notdone">Не выполнили</option></select>
+            </div>
+          </div>
+        </div>
+
+        <div class="table-wrapper glass-panel">
+          <table id="norm-table"><thead><tr>
+            <th class="norm-th-toggle">Вкл</th><th>Имя</th><th>Discord ID</th>
+            <th id="norm-th-events">Ивенты</th><th id="norm-th-tickets">Тикеты</th><th>Статус</th>
+          </tr></thead><tbody id="norm-tbody"></tbody></table>
+          <div id="norm-empty" class="empty-state hidden"><svg class="empty-icon-svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg><p>Нет данных состава.</p></div>
+        </div>
+
+        <div class="norm-preview glass-panel hidden" id="norm-preview">
+          <div class="norm-preview-header"><h4>👁️ Предпросмотр</h4></div>
+          <pre class="norm-preview-text" id="norm-preview-text"></pre>
+        </div>
+      </section>
+
+      <!-- TAB: Settings -->
+      <section id="tab-settings" class="tab-content hidden">
+        <div class="section-header">
+          <h2>
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+            Настройки
+          </h2>
+        </div>
+        <div class="settings-grid">
+          <div class="settings-card glass-panel"><h3><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/></svg> Фон приложения</h3><div class="settings-subtitle">Сначала доступен только первый фон. Остальные можно загрузить вручную.</div><div class="bg-grid" id="bg-grid"></div></div>
+          <div class="settings-card glass-panel"><h3><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r=".5"/><circle cx="17.5" cy="10.5" r=".5"/><circle cx="8.5" cy="7.5" r=".5"/><circle cx="6.5" cy="12.5" r=".5"/><path d="M12 22a1 1 0 0 1-.93-.63l-1.25-3.12a2 2 0 0 0-1.86-1.25H5a2 2 0 0 1-1.41-3.41l7.59-7.59A6 6 0 1 1 18 12.82l-7.59 7.59A2 2 0 0 1 9 21h3"/></svg> Цветокоррекция</h3><div class="theme-grid" id="theme-grid"></div><div class="settings-controls"><label class="setting-range"><span>Яркость</span><input type="range" id="visual-brightness" min="70" max="160" step="1" /><strong id="visual-brightness-value">100%</strong></label><label class="setting-range"><span>Контраст</span><input type="range" id="visual-contrast" min="70" max="170" step="1" /><strong id="visual-contrast-value">100%</strong></label><label class="setting-range"><span>Насыщенность</span><input type="range" id="visual-saturate" min="50" max="200" step="1" /><strong id="visual-saturate-value">100%</strong></label><label class="setting-range"><span>Затемнение фона</span><input type="range" id="visual-overlay" min="20" max="90" step="1" /><strong id="visual-overlay-value">65%</strong></label><div class="settings-actions"><button type="button" class="btn btn-secondary btn-sm" id="visual-reset-color">Сбросить цветокоррекцию</button></div></div></div>
+          <div class="settings-card glass-panel"><h3><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h18"/><path d="M7 8h10"/><path d="M5 16h14"/></svg> Блюр и эффекты</h3><div class="settings-controls"><label class="setting-range"><span>Блюр стекла</span><input type="range" id="visual-glass-blur" min="0" max="32" step="1" /><strong id="visual-glass-blur-value">20px</strong></label><label class="setting-range"><span>Блюр фона</span><input type="range" id="visual-bg-blur" min="0" max="12" step="1" /><strong id="visual-bg-blur-value">2px</strong></label><label class="setting-select"><span>Фоновый эффект</span><select id="visual-bg-effect" class="field-select"><option value="none">Выключен</option><option value="particles">Точки</option></select></label><div class="settings-actions"><button type="button" class="btn btn-secondary btn-sm" id="visual-reset-effects">Сбросить эффекты</button></div></div></div>
+          <div class="settings-card glass-panel"><h3><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="7" y1="8" x2="17" y2="8"/><line x1="7" y1="12" x2="17" y2="12"/><line x1="7" y1="16" x2="13" y2="16"/></svg> Интерфейс</h3><div class="settings-toggles"><label class="setting-toggle"><input type="checkbox" id="visual-animations-enabled" /> <span><strong>Анимации</strong><small>Включает параллакс, молнии логина и анимации интерфейса.</small></span></label><label class="setting-toggle"><input type="checkbox" id="visual-compact-mode" /> <span><strong>Компактный режим</strong><small>Умеренно уменьшает отступы, таблицы, карточки и верхнюю панель.</small></span></label></div><div class="settings-controls"><label class="setting-select"><span>Расположение вкладок</span><select id="visual-nav-position" class="field-select"><option value="top">Сверху</option><option value="bottom">Снизу</option></select></label></div><div class="settings-actions"><button type="button" class="btn btn-secondary btn-sm" id="visual-reset-all">Сбросить все визуальные настройки</button></div></div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- ===== FAB (Floating Action Button) ===== -->
+  <div id="fab-container" class="hidden">
+    <div class="fab-wrapper" id="fab-wrapper">
+      <div class="fab-tooltip" id="fab-tooltip">Создать</div>
+      <button class="fab-button" id="fab-button" title="Добавить">
+        <svg class="fab-icon fab-icon-plus" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- ===== MODALS ===== -->
+
+  <!-- Modal: Create Event (UPDATED) -->
+  <div id="modal-event" class="modal hidden">
+    <div class="modal-backdrop"></div>
+    <div class="modal-card glass-panel modal-large">
+      <div class="modal-header">
+        <h3 id="modal-event-title">Создать ивент</h3>
+        <button class="btn-icon modal-close" data-modal="modal-event">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"/>
+            <line x1="6" y1="6" x2="18" y2="18"/>
+          </svg>
+        </button>
+      </div>
+      <form id="event-form" autocomplete="off">
+        <input type="hidden" id="event-id" />
+
+        <div class="input-group">
+          <label for="event-name">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            Название ивента *
+          </label>
+          <input type="text" id="event-name" placeholder="Введите название ивента" required />
+        </div>
+
+        <div class="input-group">
+          <label for="event-description">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="17" y1="10" x2="3" y2="10"/><line x1="21" y1="6" x2="3" y2="6"/><line x1="21" y1="14" x2="3" y2="14"/><line x1="17" y1="18" x2="3" y2="18"/></svg>
+            Краткое описание *
+          </label>
+          <textarea id="event-description" placeholder="Опишите ивент..." rows="3" required></textarea>
+        </div>
+
+        <div class="input-row-2">
+          <div class="input-group">
+            <label for="event-time-start">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              Время начала
+            </label>
+            <input type="text" id="event-time-start" placeholder="Например: 15.04.26, 18:30" />
+          </div>
+          <div class="input-group">
+            <label for="event-time-end">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 8 14"/></svg>
+              Время окончания
+            </label>
+            <input type="text" id="event-time-end" placeholder="Например: 15.04.26, 19:00" />
+          </div>
+        </div>
+
+        <div class="input-row-2">
+          <div class="input-group">
+            <label for="event-participants">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              Количество участников
+            </label>
+            <input type="text" id="event-participants" placeholder="Сколько человек участвовало" />
+          </div>
+          <div class="input-group">
+            <label for="event-organizer">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              Организатор *
+            </label>
+            <input type="text" id="event-organizer" placeholder="Организатор" required />
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label for="event-prizes">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+            Были призы? Если да, то какие
+          </label>
+          <textarea id="event-prizes" placeholder="Напишите какие призы были выданы..." rows="2"></textarea>
+        </div>
+
+        <div class="input-group">
+          <label for="event-helpers">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            Помощники
+          </label>
+          <input type="text" id="event-helpers" placeholder="Перечислите помощников (через запятую)" />
+          <span class="input-hint">Кто помогал проводить ивент</span>
+        </div>
+
+        <div class="modal-actions">
+          <button type="button" class="btn btn-secondary modal-close" data-modal="modal-event">Отмена</button>
+          <button type="submit" class="btn btn-accent">Сохранить</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal: Event Detail / Comments (UPDATED) -->
+  <div id="modal-event-detail" class="modal hidden">
+    <div class="modal-backdrop"></div>
+    <div class="modal-card glass-panel modal-large">
+      <div class="modal-header">
+        <h3 id="detail-event-name">Ивент</h3>
+        <button class="btn-icon modal-close" data-modal="modal-event-detail">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <div class="detail-info">
+        <div class="detail-row"><span class="detail-label">Описание:</span><span id="detail-description">—</span></div>
+        <div class="detail-row"><span class="detail-label">Организатор:</span><span id="detail-organizer">—</span></div>
+        <div class="detail-row"><span class="detail-label">Начало:</span><span id="detail-time-start">—</span></div>
+        <div class="detail-row"><span class="detail-label">Окончание:</span><span id="detail-time-end">—</span></div>
+        <div class="detail-row"><span class="detail-label">Участники:</span><span id="detail-participants">—</span></div>
+        <div class="detail-row"><span class="detail-label">Призы:</span><span id="detail-prizes">—</span></div>
+        <div class="detail-row"><span class="detail-label">Помощники:</span><span id="detail-helpers">—</span></div>
+        <div class="detail-row"><span class="detail-label">Статус:</span><span id="detail-status" class="status-badge">—</span></div>
+      </div>
+      <div class="comments-section">
+        <h4>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          Комментарии
+        </h4>
+        <div id="comments-list" class="comments-list"></div>
+        <form id="comment-form" autocomplete="off">
+          <input type="hidden" id="comment-event-id" />
+          <div class="comment-input-row">
+            <input type="text" id="comment-text" placeholder="Написать комментарий..." required />
+            <button type="submit" class="btn btn-accent btn-sm">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Change Status -->
+  <div id="modal-status" class="modal hidden">
+    <div class="modal-backdrop"></div>
+    <div class="modal-card glass-panel modal-small">
+      <div class="modal-header">
+        <h3>Изменить статус</h3>
+        <button class="btn-icon modal-close" data-modal="modal-status">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <form id="status-form">
+        <input type="hidden" id="status-event-id" />
+        <div class="input-group">
+          <label for="status-select">Статус</label>
+          <select id="status-select">
+            <option value="В рассмотрении">В рассмотрении</option>
+            <option value="Одобрено">Одобрено</option>
+            <option value="Отказано">Отказано</option>
+          </select>
+        </div>
+        <div class="input-group hidden" id="reject-reason-wrap">
+          <label for="reject-reason">Причина отказа *</label>
+          <textarea id="reject-reason" placeholder="Укажите причину отказа..." rows="3"></textarea>
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="btn btn-secondary modal-close" data-modal="modal-status">Отмена</button>
+          <button type="submit" class="btn btn-accent">Применить</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal: Add Staff -->
+  <div id="modal-staff" class="modal hidden">
+    <div class="modal-backdrop"></div>
+    <div class="modal-card glass-panel">
+      <div class="modal-header">
+        <h3 id="modal-staff-title">Добавить сотрудника</h3>
+        <button class="btn-icon modal-close" data-modal="modal-staff">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <form id="staff-form" autocomplete="off">
+        <input type="hidden" id="staff-id" />
+        <div class="input-group">
+          <label for="staff-name">Имя</label>
+          <input type="text" id="staff-name" placeholder="Имя" required />
+        </div>
+        <div class="input-group">
+          <label for="staff-role">Роль</label>
+          <select id="staff-role" required>
+            <option value="Ивентер">Ивентер</option>
+            <option value="Старший ивентер">Старший ивентер</option>
+            <option value="Зам главы ивентов">Зам главы ивентов</option>
+            <option value="Глава ивентов">Глава ивентов</option>
+          </select>
+        </div>
+        <div class="input-group">
+          <label for="staff-rank">Ранг</label>
+          <select id="staff-rank" required>
+            <option value="intern">intern</option>
+            <option value="assistant">assistant</option>
+            <option value="curator">curator</option>
+            <option value="sudo_curator">sudo_curator</option>
+            <option value="operator">operator</option>
+            <option value="moderator">moderator</option>
+            <option value="d_moderator">d_moderator</option>
+            <option value="admin">admin</option>
+            <option value="d_admin">d_admin</option>
+            <option value="senior_admin">senior_admin</option>
+          </select>
+        </div>
+        <div class="input-group">
+          <label for="staff-steam">Steam ID</label>
+          <input type="text" id="staff-steam" placeholder="STEAM_0:1:..." required />
+        </div>
+        <div class="input-group">
+          <label for="staff-join-date">Дата вступления</label>
+          <input type="date" id="staff-join-date" required />
+        </div>
+        <div class="input-group">
+          <label for="staff-discord">Discord ID</label>
+          <input type="text" id="staff-discord" placeholder="username#0000" required />
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="btn btn-secondary modal-close" data-modal="modal-staff">Отмена</button>
+          <button type="submit" class="btn btn-accent">Сохранить</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal: Import Staff -->
+  <div id="modal-import-staff" class="modal hidden">
+    <div class="modal-backdrop"></div>
+    <div class="modal-card glass-panel modal-large">
+      <div class="modal-header">
+        <h3>Импорт из таблицы</h3>
+        <button class="btn-icon modal-close" data-modal="modal-import-staff">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <div class="input-row-2 staff-import-toolbar">
+        <div class="input-group">
+          <label for="staff-import-search">Поиск</label>
+          <input type="text" id="staff-import-search" placeholder="Имя / Steam / Discord / ранг" />
+        </div>
+        <div class="input-group">
+          <label for="staff-import-role">Локальная должность</label>
+          <select id="staff-import-role">
+            <option value="Ивентер">Ивентер</option>
+            <option value="Старший ивентер">Старший ивентер</option>
+            <option value="Зам главы ивентов">Зам главы ивентов</option>
+            <option value="Глава ивентов">Глава ивентов</option>
+          </select>
+        </div>
+        <div class="input-group">
+          <label for="staff-import-rank">Локальный ранг</label>
+          <select id="staff-import-rank">
+            <option value="intern">intern</option>
+            <option value="assistant">assistant</option>
+            <option value="curator">curator</option>
+            <option value="sudo_curator">sudo_curator</option>
+            <option value="operator">operator</option>
+            <option value="moderator">moderator</option>
+            <option value="d_moderator">d_moderator</option>
+            <option value="admin">admin</option>
+            <option value="d_admin">d_admin</option>
+            <option value="senior_admin">senior_admin</option>
+          </select>
+        </div>
+      </div>
+      <div class="modal-actions staff-import-actions">
+        <button type="button" class="btn btn-secondary" id="btn-refresh-import-staff">Обновить список</button>
+      </div>
+      <div id="staff-import-list" class="users-list">
+        <div class="comments-empty">Нажми «Обновить список» для загрузки</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Manage Users (Admin) -->
+  <div id="modal-users" class="modal hidden">
+    <div class="modal-backdrop"></div>
+    <div class="modal-card glass-panel modal-large">
+      <div class="modal-header">
+        <h3>Управление аккаунтами</h3>
+        <button class="btn-icon modal-close" data-modal="modal-users">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <div class="user-mgmt-section">
+        <h4 style="margin-bottom:16px;color:var(--text-primary);">Создать новый аккаунт</h4>
+        <form id="create-user-form" autocomplete="off">
+          <div class="input-row-2">
+            <div class="input-group">
+              <label for="new-user-username">Логин</label>
+              <input type="text" id="new-user-username" placeholder="Логин" required />
+            </div>
+            <div class="input-group">
+              <label for="new-user-password">Пароль</label>
+              <input type="text" id="new-user-password" placeholder="Пароль" required />
+            </div>
+          </div>
+          <div class="input-row-2">
+            <div class="input-group">
+              <label for="new-user-display">Отображаемое имя</label>
+              <input type="text" id="new-user-display" placeholder="Имя Фамилия" required />
+            </div>
+            <div class="input-group">
+              <label for="new-user-role">Роль</label>
+              <select id="new-user-role" required>
+                <option value="Ивентер">Ивентер</option>
+                <option value="Старший ивентер">Старший ивентер</option>
+                <option value="Зам главы ивентов">Зам главы ивентов</option>
+                <option value="Глава ивентов">Глава ивентов</option>
+                <option value="DEV">DEV</option>
+              </select>
+            </div>
+          </div>
+          <div class="input-row-2">
+            <div class="input-group">
+              <label for="new-user-rank">Ранг</label>
+              <select id="new-user-rank">
+                <option value="intern">intern</option>
+                <option value="assistant">assistant</option>
+                <option value="curator">curator</option>
+                <option value="sudo_curator">sudo_curator</option>
+                <option value="operator">operator</option>
+                <option value="moderator">moderator</option>
+                <option value="d_moderator">d_moderator</option>
+                <option value="admin">admin</option>
+                <option value="d_admin">d_admin</option>
+                <option value="senior_admin">senior_admin</option>
+              </select>
+            </div>
+            <div class="input-group">
+              <label for="new-user-steam">Steam ID</label>
+              <input type="text" id="new-user-steam" placeholder="STEAM_0:1:..." />
+            </div>
+          </div>
+          <div class="input-row-2">
+            <div class="input-group">
+              <label for="new-user-avatar">URL аватара</label>
+              <input type="text" id="new-user-avatar" placeholder="Оставь пустым для дефолта" />
+            </div>
+          </div>
+          <button type="submit" class="btn btn-accent" style="margin-top:8px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            Создать аккаунт
+          </button>
+        </form>
+      </div>
+      <div class="user-mgmt-section" style="margin-top:24px;">
+        <h4 style="margin-bottom:12px;color:var(--text-primary);">Существующие аккаунты</h4>
+        <div id="users-list" class="users-list">
+          <div class="comments-empty">Загрузка...</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Modal: Manual Versions -->
+  <div id="modal-manual-versions" class="modal hidden">
+    <div class="modal-backdrop"></div>
+    <div class="modal-card glass-panel modal-large">
+      <div class="modal-header">
+        <h3>📜 История версий методички</h3>
+        <button class="btn-icon modal-close" data-modal="modal-manual-versions">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <div id="manual-versions-list" class="manual-versions-list">
+        <div class="comments-empty">Загрузка...</div>
+      </div>
+    </div>
+  </div>
+  <!-- Toast container -->
+  <div id="toast-container"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
